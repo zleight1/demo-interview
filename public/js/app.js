@@ -29,18 +29,18 @@ function handleCallback(callback, data) {
     return callback(data);
 }
 
-function populateList(results) {
+function templateResults( template, results ) {
     if (!results) {
         alert('Empty Results!');
     }
     var list = '';
     for (var i = 0; i < results.Objects.length; i++) {
-        list = list + templateResult(results.Objects[i]);
+        list = list + template(results.Objects[i]);
     };
     return $.parseHTML(list);
 }
 
-function templateResult(result) {
+function templateStudents(result) {
     var template = '<a href="#" class="show-info"';
     for (var key in result) {
         if (result.hasOwnProperty(key)) {
@@ -74,7 +74,7 @@ function loadItems() {
             'limit': limit
         },
         'callback': function(result) {
-            return $(target).append(populateList(result));
+            return $(target).append(templateResults(templateStudents, result));
         }
     });
 }
