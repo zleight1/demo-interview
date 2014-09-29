@@ -1,4 +1,21 @@
 % layout 'default';
 % title 'Students';
 
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+
+});
+function loadSchools() {
+
+}
+
+function templateSchools(result) {
+    
+}
+</script>
+
 <h2 class="text-center"><%= $msg %></h2>
+<div id="students" data-id="<%= $id =>">
+
+</div>
+

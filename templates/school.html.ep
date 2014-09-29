@@ -1,4 +1,28 @@
 % layout 'default';
 % title 'School';
 
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+
+    });
+function loadSchool(id) {
+
+}
+
+function templateSchool(result) {
+    
+    var template = '';
+    var data = $(this).data();
+    for (var key in data) {
+            template += '<h4>' + key + ' : <small>' + data[key] + '</small></h4>';
+    }
+    return $('#info').empty().append(template);
+
+}
+</script>
+
 <h2 class="text-center"><%= $msg %></h2>
+<div id="school-info" data-id="<%= $id =>">
+
+</div>
+
