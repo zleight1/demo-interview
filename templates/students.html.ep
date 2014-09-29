@@ -5,12 +5,19 @@
 jQuery(document).ready(function($) {
 
 });
-function loadSchools() {
+function loadStudents() {
 
 }
 
-function templateSchools(result) {
-    
+function templateStudents(result) {
+    var template = '<a href="#" class="show-info"';
+    for (var key in result) {
+        if (result.hasOwnProperty(key)) {
+            template += ' data-' + key + '="' + result[key] + '"';
+        }
+    }
+    template += '><h4>' + result.Name + '</h4></a><br />';
+    return template;
 }
 </script>
 

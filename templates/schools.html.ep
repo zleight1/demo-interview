@@ -7,20 +7,20 @@ jQuery(document).ready(function($) {
 });
 function loadSchools(target) {
     return apiCall({
-        'url': '/schools',
+        'url': 'schools',
         'callback': function(result) {
-            return $(target).append(templateResults(templateSchools, result));
+            return $(target).append(templateResults(templateSchools, result.Objects));
         }
     });
 }
 
 function templateSchools(result) {
-    
+    return '<li class="list-group-item"><a href="schools/'+ result.ID + '">'+result.Name+'</a></li>';
 }
 </script>
 
 <h2 class="text-center"><%= $msg %></h2>
-<div id="schools">
-
-</div>
+<ul id="schools" class="list-group">
+    
+</ul>
 

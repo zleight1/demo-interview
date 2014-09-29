@@ -3,14 +3,14 @@
 
 <script type="text/javascript">
 jQuery(document).ready(function($) {
-
-    });
+    loadSchool($('#school-info').data('id'));
+});
 function loadSchool(id) {
-
+    
 }
 
 function templateSchool(result) {
-    
+
     var template = '';
     var data = $(this).data();
     for (var key in data) {
@@ -22,7 +22,7 @@ function templateSchool(result) {
 </script>
 
 <h2 class="text-center"><%= $msg %></h2>
-<div id="school-info" data-id="<%= $id =>">
+<div id="school-info" data-id="<\%= $id =>">
 
 </div>
 

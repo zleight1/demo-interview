@@ -28,8 +28,8 @@ function templateResults( template, results ) {
         return 'Empty Results!';
     }
     var list = '';
-    for (var i = 0; i < results.Objects.length; i++) {
-        list = list + template(results.Objects[i]);
+    for (var i = 0; i < results.length; i++) {
+        list = list + template(results[i]);
     };
     return $.parseHTML(list);
 }
