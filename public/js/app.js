@@ -61,14 +61,14 @@ function showInformation() {
 }
 
 function loadItems() {
-    var items = $(this).data('items');
+    var url = $(this).data('url');
     var offset = $(this).data('offset');
     var limit = $(this).data('limit');
     var target = $(this).data('target');
     var newOffset = $(this).data('offset') + $(this).data('limit');
     $(this).data('offset', newOffset);
     return apiCall({
-        'url': items,
+        'url': url,
         'data': {
             'offset': offset,
             'limit': limit

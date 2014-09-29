@@ -1,0 +1,4 @@
+% layout 'default';
+% title 'Student';
+
+<h2 class="text-center"><%= $msg %></h2>

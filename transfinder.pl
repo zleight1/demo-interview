@@ -7,7 +7,27 @@ use JSON;
 
 get '/' => sub {
     my $c = shift;
-    $c->render( 'index', msg => 'Load Some Students' );
+    $c->render( 'schools', msg => 'Schools' );
+};
+
+get '/schools' => sub {
+    my $c = shift;
+    $c->render( 'schools', msg => 'Schools' );
+};
+
+get '/schools/:id' => sub {
+    my $c = shift;
+    $c->render( 'school', msg => 'School', id => $c->stash('id') );
+};
+
+get '/schools/:id/students' => sub {
+    my $c = shift;
+    $c->render( 'students', msg => 'Students', id => $c->stash('id') );
+};
+
+get '/students/:id' => sub {
+    my $c = shift;
+    $c->render( 'student', msg => 'Student', id => $c->stash('id') );
 };
 
 get '/api/:object' => sub {
