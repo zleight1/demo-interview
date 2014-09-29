@@ -1,0 +1,24 @@
+% layout 'default';
+% title 'Index';
+
+<style>
+#students-list {
+    max-height:600px;
+    overflow:scroll;
+}
+</style>
+<h2 class="text-center"><%= $msg %></h2>
+<div class="row">
+    <div class="col-md-6 col-sm-12">
+    <a href="#" id="load" class="load-items btn btn-block btn-primary" data-items="students" data-offset="0" data-limit="10" data-target="#students-list">Load More Students</a>
+       <br />
+        <div id="students-list" class="well" >
+             </div>
+    </div>
+    <div class="col-md-6 col-sm-12">
+        <h4 class="text-center">Click A Student To Display Info</h4>
+        <div id="info">
+
+        </div>
+    </div>
+</div>
