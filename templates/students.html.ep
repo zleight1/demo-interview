@@ -3,26 +3,25 @@
 
 <script type="text/javascript">
 jQuery(document).ready(function($) {
-
+    var id = $('#school-id').text().trim();
+    loadStudents(id, '#students')
 });
-function loadStudents() {
-
-}
-
-function templateStudents(result) {
-    var template = '<a href="#" class="show-info"';
-    for (var key in result) {
-        if (result.hasOwnProperty(key)) {
-            template += ' data-' + key + '="' + result[key] + '"';
+function loadStudents(id, target) {
+    return apiCall({
+        'url': 'schools/'+id+'/students',
+        'callback': function(result) {
+            return $(target).append(templateResults(templateStudents, result.Objects));
         }
-    }
-    template += '><h4>' + result.Name + '</h4></a><br />';
-    return template;
+    });
+}
+function templateStudents(result) {
+    return '<li class="list-group-item"><a href="/students/'+ result.ID + '">'+result.Name+'</a></li>';
 }
 </script>
 
 <h2 class="text-center"><%= $msg %></h2>
-<div id="students" data-id="<%= $id =>">
+<ul id="students" class="list-group">
 
-</div>
+</ul>
+<span id="school-id" class="hide"><%= $id =></span>
 

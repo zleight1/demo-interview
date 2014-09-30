@@ -3,26 +3,34 @@
 
 <script type="text/javascript">
 jQuery(document).ready(function($) {
-    loadSchool($('#school-info').data('id'));
+    var id = $('#school-id').text().trim();
+    loadSchool(id, '#school-info');
+    $('#students-link').attr('href', '/schools/'+id+'/students');
 });
-function loadSchool(id) {
-    
+function loadSchool(id, target) {
+    return apiCall({
+        'url': 'schools/'+id,
+        'callback': function(result) {
+            return $(target).append(templateResults(templateSchool, result.Objects));
+        }
+    });
 }
-
 function templateSchool(result) {
-
+    console.log(result)
     var template = '';
-    var data = $(this).data();
-    for (var key in data) {
-            template += '<h4>' + key + ' : <small>' + data[key] + '</small></h4>';
+    for (var key in result) {
+            template += '<h4>' + key + ' : <small>' + result[key] + '</small></h4>';
     }
-    return $('#info').empty().append(template);
+    return template;
 
 }
 </script>
 
 <h2 class="text-center"><%= $msg %></h2>
-<div id="school-info" data-id="<\%= $id =>">
+<a id="students-link" href="#" class="btn btn-block btn-success">View Students</a>
+<br />
+<div id="school-info" class="well">
 
 </div>
+<span id="school-id" class="hide"><%= $id =></span>
 
