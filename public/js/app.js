@@ -1,6 +1,7 @@
 function apiCall(request) {
     // Set Some Defaults - use a proxy
-    var baseURL = 'http://127.0.0.1:3000/api/';
+    var root = location.protocol + '//' + location.host;
+    var baseURL = root+'/api/';
     // var baseURL = 'http://zleighton:zleighton123@50.19.85.246/devsample/apiv1.svc/';
     var type = request.type || 'GET';
     var url = baseURL + request.url;

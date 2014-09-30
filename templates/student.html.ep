@@ -3,19 +3,13 @@
 
 <script type="text/javascript">
 jQuery(document).ready(function($) {
-
+var id = $('#student-id').text().trim();
+    loadTarget('students/'+id, '#student-info', templateKeys);
     });
-function loadStudent(id) {
-
-}
-
-function templateStudent(result) {
-    
-}
 </script>
 
 <h2 class="text-center"><%= $msg %></h2>
-<div id="student-info">
+<div id="student-info" class="well">
 
 </div>
 <span id="student-id" class="hide"><%= $id =></span>
