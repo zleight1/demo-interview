@@ -61,11 +61,13 @@ get '/api/:object/:id/:subobject' => sub {
 sub apiProxy {
     my $url = shift;
 
+    my $hash = 'emxlaWdodG9uOnpsZWlnaHRvbjEyMw==';
+
     my $ua = LWP::UserAgent->new;
     $ua->timeout(10);
     $ua->env_proxy;
     $ua->default_header(
-        'Authorization' => "Basic emxlaWdodG9uOnpsZWlnaHRvbjEyMw==" );
+        'Authorization' => "Basic $hash" );
 
    my $response = $ua->get(
         'http://50.19.85.246/devsample/apiv1.svc/databases/1/' . $url );

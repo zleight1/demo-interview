@@ -4,16 +4,8 @@
 <script type="text/javascript">
 jQuery(document).ready(function($) {
     var id = $('#school-id').text().trim();
-    loadStudents(id, '#students')
+    loadTarget('schools/'+id+'/students', '#students', templateStudents)
 });
-function loadStudents(id, target) {
-    return apiCall({
-        'url': 'schools/'+id+'/students',
-        'callback': function(result) {
-            return $(target).append(templateResults(templateStudents, result.Objects));
-        }
-    });
-}
 function templateStudents(result) {
     return '<li class="list-group-item"><a href="/students/'+ result.ID + '">'+result.Name+'</a></li>';
 }

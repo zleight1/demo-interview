@@ -3,16 +3,8 @@
 
 <script type="text/javascript">
 jQuery(document).ready(function($) {
-    loadSchools('#schools');
+    loadTarget('schools','#schools', templateSchools);
 });
-function loadSchools(target) {
-    return apiCall({
-        'url': 'schools',
-        'callback': function(result) {
-            return $(target).append(templateResults(templateSchools, result.Objects));
-        }
-    });
-}
 
 function templateSchools(result) {
     return '<li class="list-group-item"><a href="schools/'+ result.ID + '">'+result.Name+'</a></li>';

@@ -15,7 +15,7 @@ function templateStudent(result) {
 </script>
 
 <h2 class="text-center"><%= $msg %></h2>
-<div id="student-info" data-id="<%= $id =>">
+<div id="student-info">
 
 </div>
-
+<span id="student-id" class="hide"><%= $id =></span>

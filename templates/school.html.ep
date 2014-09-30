@@ -4,26 +4,9 @@
 <script type="text/javascript">
 jQuery(document).ready(function($) {
     var id = $('#school-id').text().trim();
-    loadSchool(id, '#school-info');
+    loadTarget('schools/'+id, '#school-info', templateKeys);
     $('#students-link').attr('href', '/schools/'+id+'/students');
 });
-function loadSchool(id, target) {
-    return apiCall({
-        'url': 'schools/'+id,
-        'callback': function(result) {
-            return $(target).append(templateResults(templateSchool, result.Objects));
-        }
-    });
-}
-function templateSchool(result) {
-    console.log(result)
-    var template = '';
-    for (var key in result) {
-            template += '<h4>' + key + ' : <small>' + result[key] + '</small></h4>';
-    }
-    return template;
-
-}
 </script>
 
 <h2 class="text-center"><%= $msg %></h2>

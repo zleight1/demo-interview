@@ -33,3 +33,20 @@ function templateResults( template, results ) {
     };
     return $.parseHTML(list);
 }
+
+function templateKeys(result) {
+    var template = '';
+    for (var key in result) {
+            template += '<h4>' + key + ' : <small>' + result[key] + '</small></h4>';
+    }
+    return template;
+}
+
+function loadTarget(url, target, templateFunction) {
+    return apiCall({
+        'url': url,
+        'callback': function(result) {
+            return $(target).append(templateResults(templateFunction, result.Objects));
+        }
+    });
+}
