@@ -2,6 +2,7 @@
 use Mojolicious::Lite;
 
 use Data::Dumper;
+use MIME::Base64;
 use LWP::UserAgent;
 use JSON;
 
@@ -61,7 +62,10 @@ get '/api/:object/:id/:subobject' => sub {
 sub apiProxy {
     my $url = shift;
 
-    my $hash = 'emxlaWdodG9uOnpsZWlnaHRvbjEyMw==';
+    my $user = 'zleighton';
+    my $pass = 'zleighton123';
+
+    my $hash = encode_base64("$user:$pass");
 
     my $ua = LWP::UserAgent->new;
     $ua->timeout(10);
